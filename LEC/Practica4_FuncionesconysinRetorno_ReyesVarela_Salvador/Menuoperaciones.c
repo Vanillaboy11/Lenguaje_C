@@ -3,20 +3,18 @@
 // sep/13/2023
 // Calcular el ctorial de un número entero utilizando una función recursiva.
 
-#include <stdio.h>
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
 
-// Prototipo de funciones
 
 void calcularFibonacci(int n);
 int calcularFibonacciR(int n);
 int factorial(int n);
 void TrianguloPascal(int n);
 
-// Funcion main
+
 int main()
 {
     int n, op,op2;
