@@ -12,6 +12,7 @@ void multiplicarPorDos(int &x);
 void arreglos(void);
 int repetidos(int vect[], int n, int num);
 void sumarAElementos(int *vect, int sum);
+void elementoMaximo(int *arr, int size);
 
 int main()
 {
@@ -19,6 +20,7 @@ int main()
   int num = 12;
   int *pntr = &num;
   int arr[5] = {1, 2, 3, 4, 5};
+  int size = sizeof(arr) / sizeof(arr[0]);
   ptr();
   multiplicarPorDos(*pntr);
   printf("Valor de pntr: %d\n\n", *pntr);
@@ -26,6 +28,8 @@ int main()
   printf("\n");
   pntr = arr;
   sumarAElementos(pntr, 2);
+  printf("\n\n");
+  elementoMaximo(arr, size);
 }
 
 void ptr(void)
@@ -78,9 +82,28 @@ void sumarAElementos(int *vect, int sum)
 {
   int leng = sizeof *vect;
   int i;
-  for (i = 0; i < leng+1; i++)
+  for (i = 0; i < leng + 1; i++)
   {
-    printf("%d\t", *vect+sum);
+    printf("%d\t", *vect + sum);
     vect++;
   }
+}
+
+void elementoMaximo(int *arr, int size)
+{
+  int i, step;
+  int temp;
+  for (step = 0; step < size; ++step)
+  {
+    for (i = 0; i < size - step; ++i)
+    {
+      if (arr[i] > arr[i + 1])
+      {
+        temp = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = temp;
+      }
+    }
+  }
+  printf("El valor maxio es = %d", arr[size]);
 }
